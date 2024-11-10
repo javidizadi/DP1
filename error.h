@@ -10,6 +10,20 @@ enum StackError {
 };
 
 void raiseStackError(StackError err) {
-  cout << "Stack is full.\n";
+
+  string msg;
+
+  switch (err) {
+  case StackError::StackIsFull:
+    msg = "Stack is full.";
+    break;
+
+  case StackError::StackIsEmpty:
+    msg = "Stack is empty.";
+    break;
+  }
+
+  cout << msg << endl;
+
   exit(1);
 }

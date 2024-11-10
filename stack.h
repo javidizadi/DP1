@@ -29,5 +29,7 @@ public:
     return data[count_elements - 1];
   }
 
+  bool isEmpty() { return count_elements == 0; }
+
   Stack() : count_elements(0) {}
 };

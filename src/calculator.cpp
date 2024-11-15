@@ -53,8 +53,6 @@ string infixToPostFix(string input) {
 
   for (int i = 0; i < input.length(); i++) {
 
-    char ch = input[i]; // test
-
     if (isOperator(input[i])) {
 
       if (s1.isEmpty()) {
@@ -92,34 +90,34 @@ string infixToPostFix(string input) {
 
 int isOperator(char ch) {
 
+  int priority = 0;
+
   switch (ch) {
+
+  case '(':
+  case ')':
+    priority++;
 
   case COS_MAPPED_CHAR:
   case SIN_MAPPED_CHAR:
-    return 1;
+    priority++;
 
   case '!':
-    return 2;
+    priority++;
 
   case '^':
-    return 3;
+    priority++;
 
   case '/':
   case '*':
-    return 4;
+    priority++;
 
   case '+':
   case '-':
-    return 5;
-
-  case '(':
-    return 6;
-
-  case ')':
-    return 7;
+    priority++;
   }
 
-  return 0;
+  return priority;
 }
 
 bool prcd(char a, char b) {
@@ -133,5 +131,5 @@ bool prcd(char a, char b) {
   if (b == ')')
     return true;
 
-  return isOperator(a) >= isOperator(b);
+  return isOperator(a) <= isOperator(b);
 }

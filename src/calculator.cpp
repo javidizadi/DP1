@@ -4,12 +4,12 @@
 using namespace std;
 
 bool prcd(char, char);
-void mapTriFn(string &);
+void mapTrigonometricFunctions(string &);
 
 const char COS_MAPPED_CHAR = '@';
 const char SIN_MAPPED_CHAR = '#';
 
-void mapTriFn(string &input) {
+void mapTrigonometricFunctions(string &input) {
 
   int pos;
   while ((pos = input.find("sin")) != string::npos)
@@ -37,7 +37,7 @@ void fixSingleOperand(string &input) {
 
 string infixToPostFix(string input) {
 
-  mapTriFn(input);
+  mapTrigonometricFunctions(input);
   fixSingleOperand(input);
 
   string result;

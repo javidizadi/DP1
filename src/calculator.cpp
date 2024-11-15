@@ -53,10 +53,21 @@ string infixToPostFix(string input) {
 
   for (int i = 0; i < input.length(); i++) {
 
+    char ch = input[i]; // test
+
     if (isOperator(input[i])) {
 
       if (s1.isEmpty()) {
         s1.push(input[i]);
+        continue;
+      }
+
+      if (input[i] == ')') {
+
+        while (s1.top() != '(')
+          result += s1.pop();
+
+        s1.pop();
         continue;
       }
 
@@ -67,8 +78,8 @@ string infixToPostFix(string input) {
 
       while (!s1.isEmpty() && prcd(input[i], s1.top()))
         result += s1.pop();
-
       s1.push(input[i]);
+
     } else
       result += input[i];
   }
@@ -122,8 +133,5 @@ bool prcd(char a, char b) {
   if (b == ')')
     return true;
 
-  if (a == b)
-    return true;
-
-  return isOperator(a) < isOperator(b);
+  return isOperator(a) >= isOperator(b);
 }

@@ -14,7 +14,7 @@ STACK_CLASS(T)::pop() {
   if (count_elements == 0)
     throw(StackError::StackIsEmpty);
 
-  return data[count_elements--];
+  return data[--count_elements];
 }
 
 STACK_CLASS(T)::top() {

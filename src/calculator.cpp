@@ -9,13 +9,6 @@ void mapTriFn(string &);
 const char COS_MAPPED_CHAR = '@';
 const char SIN_MAPPED_CHAR = '#';
 
-int validateInfix(string input) {
-  for (int i = 0; i < input.length(); i++) {
-  }
-
-  return -1;
-}
-
 void mapTriFn(string &input) {
 
   int pos;
